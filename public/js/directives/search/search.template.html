@@ -1,0 +1,28 @@
+<div class="input-group search-box">
+  <input class="form-control" type="text" ng-model="searchTerm" placeholder="Search for movies and TV shows" ng-model-options="{debounce:1000}" ng-change="search()"> <span class="input-group-btn">
+    <button style="margin-right:0;" class="btn btn-default">
+      <i class="glyphicon glyphicon-search"></i>
+    </button>
+  </span> </div>
+<div class="row list" ng-repeat="movie in searchedMovies track by $index">
+  <div class="poster-container">
+  <img ng-src="{{movie.Poster||'../img/na.png'}}" class="poster" onerror="this.src='../img/na.png'">
+  <img src="../img/border.png" class="poster watched" ng-if="movie.watched">
+    <div class="overlay">
+      <a class="mark-btn overlay-btn btn btn-sm btn-custom white" target="_blank" href="{{'https://www.imdb.com/title/'+movie.imdbID}}">IMDB page</a> 
+      <button ng-if="!movie.favorite" ng-click="addToList(movie.imdbID,movie.Type);movie.favorite=true;" class="remove-btn overlay-btn btn btn-sm btn-custom white">Add to favorites</button>
+       <button ng-if="movie.favorite" class="remove-btn overlay-btn btn btn-sm btn-custom white" disabled><i class="fa fa-check" aria-hidden="true"></i> Already in favorites</button>
+    </div>
+    </div>
+  <div class="gutter"></div>
+    <div class="tooltip-class">
+    <a href="" data-toggle="tooltip" onmouseenter="$(this).tooltip('show')" class="white" data-placement="bottom"
+    title="{{movie.Title}}">{{movie.Title}}</a>
+  </div>
+  <div>
+    <span class="small">{{movie.Year}}</span>
+  </div>
+</div>
+    <div class="jumbo-info text-center jumbotron" ng-if="noresults">
+    <i class="fa fa-frown-o fa-5x"></i><br>No results found. Try a different search term.
+    </div>

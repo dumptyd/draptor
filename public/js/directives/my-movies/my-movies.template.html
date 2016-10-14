@@ -1,0 +1,24 @@
+<div class="row list" ng-repeat="movie in myMovies|orderBy : 'Title'">
+  <div class="poster-container">
+    <img ng-src="{{movie.Poster||'../img/na.png'}}" class="poster" onerror="this.src='../img/na.png'">
+    <img src="../img/border.png" class="poster watched" ng-if="movie.watched">
+    <div class="overlay">
+      <button ng-click="movie.watched=!movie.watched;toggleWatched(movie.imdbID, movie.Type)" class="mark-btn overlay-btn btn btn-sm btn-custom white" ng-if="movie.watched">Mark as unwatched</button>
+      <button ng-click="movie.watched=!movie.watched;toggleWatched(movie.imdbID, movie.Type)" class="mark-btn overlay-btn btn btn-sm btn-custom white" ng-if="!movie.watched">Mark as watched</button>
+      <button ng-click="remove(movie.imdbID, movie.Type)" class="remove-btn overlay-btn btn btn-sm btn-custom white">Remove from favorites</button>
+    </div>
+  </div>
+  <div class="gutter"></div>
+  
+    <div class="tooltip-class">
+    <a href="" data-toggle="tooltip" onmouseenter="$(this).tooltip('show')" class="white" data-placement="bottom"
+    title="{{movie.Title}}">{{movie.Title}}</a>
+  </div>
+  <div>
+    <span class="small">{{movie.Year}}</span>
+  </div>
+</div>
+
+
+
+<div ng-if="!myMovies.length" class="jumbo-info text-center jumbotron"><i class="fa fa-frown-o fa-5x"></i> <br>Nothing to show here. Add some movies to get started.</div>

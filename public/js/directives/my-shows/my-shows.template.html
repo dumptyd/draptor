@@ -1,0 +1,23 @@
+<div class="row list" ng-repeat="show in myTvShows|orderBy : 'Title'">
+  <div class="poster-container">
+    <img ng-src="{{show.Poster||'../img/na.png'}}" class="poster" onerror="this.src='../img/na.png'">
+    <img src="../img/border.png" class="poster watched" ng-if="show.watched">
+    <div class="overlay">
+      <button ng-click="show.watched=!show.watched;toggleWatched(show.imdbID, show.Type)" class="mark-btn overlay-btn btn btn-sm btn-custom white" ng-if="show.watched">Mark as unwatched</button>
+      <button ng-click="show.watched=!show.watched;toggleWatched(show.imdbID, show.Type)" class="mark-btn overlay-btn btn btn-sm btn-custom white" ng-if="!show.watched">Mark as watched</button>
+      <button ng-click="remove(show.imdbID, show.Type)" class="remove-btn overlay-btn btn btn-sm btn-custom white">Remove from favorites</button>
+    </div>
+  </div>
+  <div class="gutter"></div>
+  
+    <div class="tooltip-class">
+    <a href="" data-toggle="tooltip" onmouseenter="$(this).tooltip('show')" class="white" data-placement="bottom"
+    title="{{show.Title}}">{{show.Title}}</a>
+  </div>
+  <div>
+    <span class="small">{{show.Year}}</span>
+  </div>
+</div>
+
+
+<div ng-if="!myTvShows.length" class="jumbo-info text-center jumbotron"><i class="fa fa-frown-o fa-5x"></i> <br>Nothing to show here. Add some TV shows to get started.</div>

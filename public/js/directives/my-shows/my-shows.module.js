@@ -1,0 +1,1 @@
+angular.module('myShowsModule',['movieTrackerApp']); //jshint ignore:line

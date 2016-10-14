@@ -1,0 +1,268 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Draptor</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <link rel="stylesheet" href="https://bootswatch.com/cyborg/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <!--  Get rid of these later-->
+  <!--  get rid of these later-->
+  <script src="../js/main.js"></script>
+  <script src="../js/jquery.chocolate.js"></script>
+  <!-- Place favicon.ico in the root directory -->
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <style>
+    html,
+    body,
+    .container-table {
+      height: 100%;
+    }
+    
+    .container-table {
+      display: table;
+      padding: 0;
+    }
+    
+    .vertical-center-row {
+      display: table-cell;
+      vertical-align: middle;
+      font-family: 'Catamaran';
+    }
+    
+    .text-custom {
+      font-size: 1em;
+    }
+    
+    @media (min-width: 200px) {
+      .text-custom {
+        font-size: 1.5em;
+      }
+    }
+    
+    @media (min-width: 1100px) {
+      .text-custom {
+        font-size: 3em;
+      }
+    }
+    
+    @media (min-width: 2200px) {
+      .text-custom {
+        font-size: 4em;
+      }
+    }
+    
+    .bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      filter: blur(5px);
+      background-size: cover;
+      background-image: url(/img/bg1.jpg);
+      transition: background-image 3s ease-in;
+    }
+    .modal-content,.nav-tabs > li.active > a,.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+      background: #000;
+    }
+    
+    .auto-width{
+      width:auto;
+    }
+    .form-control,.modal-content,.nav-tabs.nav-justified > li > a,.nav-tabs > li > a{
+      border-radius: 0 !important;
+    }
+    .modal-body{
+      border: 1px solid #fff;
+      border-top:none;
+    }
+    .gutter-lg{
+      margin-top:10px;
+    }
+  </style>
+</head>
+
+<body style="padding:0;margin:0;background-size:cover;">
+  <div class="bg"></div>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="background:rgba(0,0,0,0.6);">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand bold" href="#"><img style="max-height:28px;display:inline;" src="../img/dino128.png" class="img-responsive inline-block" alt=""> Draptor</a> </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <!--
+      <div class="pull-right">
+        <button class="btn btn-primary btn-lg" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">Sign In/Register</button>
+      </div>
+-->
+    </div>
+    <!-- /.navbar-collapse -->
+  </nav>
+  <!-- Button trigger modal -->
+  <div class="container container-table" ng-app="movieTrackerLandingApp" ng-controller="mtalController">
+    <!-- Modal -->
+    <div class="modal fade bs-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="bs-example bs-example-tabs">
+            <ul id="myTab" class="nav nav-tabs nav-justified">
+              <li class="active"><a href="#signin" data-toggle="tab">Sign In</a></li>
+              <li class=""><a href="#signup" data-toggle="tab">Register</a></li>
+            </ul>
+          </div>
+          <div class="modal-body">
+            <div id="myTabContent" class="tab-content">
+              <div class="tab-pane fade active in" id="signin">
+                <form class="form-horizontal">
+                  <fieldset>
+                    <!-- Sign In Form -->
+                    <!-- Text input-->
+                    <div class="control-group">
+                      <label class="control-label white" for="userid">Username:</label>
+                      <div class="controls">
+                        <input required="" id="userid" ng-model="username" name="userid" type="text" class="form-control" placeholder="Username" class="input-medium" required=""> </div>
+                    </div>
+                    <!-- Password input-->
+                    <div class="control-group">
+                      <label class="control-label white" for="passwordinput">Password:</label>
+                      <div class="controls">
+                        <input required="" placeholder="Password" id="passwordinput" ng-model="password" name="passwordinput" class="form-control" type="password" class="input-medium"> </div>
+                    </div>
+                    <!-- Multiple Checkboxes (inline)
+                    <div class="control-group">
+                      <label class="control-label" for="rememberme"></label>
+                      <div class="controls">
+                        <label class="checkbox-inline" for="rememberme-0">
+                          <input type="checkbox" name="rememberme" id="rememberme-0" value="Remember me"> Remember me </label>
+                      </div>
+                    </div> -->
+                    <!-- Button -->
+                    <div class="control-group">
+                      <label class="control-label" for="signin"></label>
+                      <div class="controls">
+                        <button id="signin" name="signin" ng-click="signin()" class="btn btn-custom auto-width white">Sign In</button>
+                      </div>
+                    </div>
+                    <div class="alert alert-danger" style="margin-top:10px;" ng-show="loginError">{{loginError}} </div>
+                  </fieldset>
+                </form>
+              </div>
+              <div class="tab-pane fade" id="signup">
+                <form class="form-horizontal">
+                  <fieldset>
+                    <div class="alert alert-success" ng-show="signupSuccess"> {{signupSuccess}} </div>
+                    <!-- Sign Up Form -->
+                    <!-- Text input-->
+                    <div class="control-group">
+                      <label class="control-label white" for="Email">Username:</label>
+                      <div class="controls">
+                        <input id="Email" name="Email" ng-model="username" class="form-control" type="text" class="input-large" placeholder="Username" required=""> </div>
+                    </div>
+                    <!-- Password input-->
+                    <div class="control-group">
+                      <label class="control-label white" for="password">Password:</label>
+                      <div class="controls">
+                        <input id="password" ng-model="password" name="password" class="form-control" type="password" class="input-large" placeholder="Password" required="">
+                      </div>
+                    </div>
+                    <!-- Text input
+                    <div class="control-group">
+                      <label class="control-label" for="reenterpassword">Re-Enter Password:</label>
+                      <div class="controls">
+                        <input id="reenterpassword" class="form-control" name="reenterpassword" type="password" class="input-large" required=""> </div>
+                    </div> -->
+                    <!-- Multiple Radios (inline) -->
+                    <!-- Button -->
+                    <div class="control-group">
+                      <label class="control-label" for="confirmsignup"></label>
+                      <div class="controls">
+                        <button id="confirmsignup" name="confirmsignup" ng-click="signup()" class="btn btn-custom auto-width white">Sign Up</button>
+                      </div>
+                    </div>
+                    <div class="alert alert-danger" style="margin-top:10px;" ng-show="signupError">{{signupError}} </div>
+                  </fieldset>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row vertical-center-row">
+      <div class="text-center col-md-12 col-md-offset-40 text-custom" style=";color:#fff;">
+        <p><span class="bold">Draptor</span> is a webapp with which you can keep track of what movies and TV shows you have seen and much more. </p>
+
+        <button class="btn btn-custom bold" style="width:200px; padding:10px;" href="#signup" data-toggle="modal" data-target=".bs-modal-lg">LOGIN NOW</button>
+      </div>
+    </div>
+  </div>
+  <!-----------------------------------------------SEPARATOR------------------------------------------------->
+
+    <footer class="text-center" style="padding:20px;background:#000;overflow:hidden;font-family:Catamaran;">
+        <div class="container">
+        <div class="row">
+         <h5 class="text-uppercase bold inline">Contact me</h5>
+         </div>
+         <div class="gutter-lg"></div>
+         <div class="row">
+          <ul class="list-inline" style="margin:0;padding:0;">
+            <li>
+            <a href="" class="btn btn-custom white bold hidden-xs text-uppercase"> <i class="fa fa-github fa-lg"></i> Github </a>
+            <a href="" class="btn btn-custom white bold visible-xs auto-width text-uppercase"> <i class="fa fa-github fa-lg"></i></a>
+            </li>
+            <li>
+            <a href="" class="btn btn-custom white bold hidden-xs text-uppercase"> <i class="fa fa-twitter fa-lg"></i> Twitter </a>
+            <a href="" class="btn btn-custom white bold visible-xs auto-width text-uppercase"> <i class="fa fa-twitter fa-lg"></i></a>
+            </li>
+            <li>
+            <a href="" class="btn btn-custom white bold hidden-xs text-uppercase"> <i class="fa fa-youtube fa-lg"></i> Youtube </a>
+            <a href="" class="btn btn-custom white bold visible-xs auto-width text-uppercase"> <i class="fa fa-youtube fa-lg"></i></a>
+            </li>
+          </ul>
+          </div>
+          <div class="gutter-lg"></div>
+          </div>
+    </footer>
+  <script>
+    $(document).ready(function(){
+            var pathStr = '../img/bg';
+      var imgArr = [],limit = 5;
+      for(var i=1;i<=limit;++i)
+        imgArr.push(pathStr+i+'.jpg');
+      $('.bg').chocolate({
+        images    : imgArr,
+        interval  : 10000,
+        speed     : 500
+      });
+    });
+    $(function() {
+    function reposition() {
+        var modal = $(this),
+            dialog = modal.find('.modal-dialog');
+        modal.css('display', 'block');
+        
+        // Dividing by two centers the modal exactly, but dividing by three 
+        // or four works better for larger screens.
+        dialog.css("margin-top", Math.max(0, ($(window).height() - dialog.height()) / 2));
+    }
+    // Reposition when a modal is shown
+    $('.modal').on('show.bs.modal', reposition);
+    // Reposition when the window is resized
+    $(window).on('resize', function() {
+        $('.modal:visible').each(reposition);
+    });
+});
+  </script>
+</body>
+
+</html>
