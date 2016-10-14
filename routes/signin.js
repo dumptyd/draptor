@@ -1,7 +1,7 @@
 //jshint node:true
 //jshint esversion:6
-let router = require('express').Router();
-let  loginRoute = function (passport) {
+const router = require('express').Router();
+const loginRoute = function (passport) {
     router.post('/', function (req, res) {
       passport.authenticate('local-login', function (err, user, info) {
         if (err) console.log(err);

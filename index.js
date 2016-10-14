@@ -1,6 +1,6 @@
 // jshint node:true
 //jshint esversion:6
-require('dotenv').config();
+require('dotenv').config({silent:true});
 const express = require('express'),
   app = express(),
   port = process.env.PORT || 8080,
@@ -55,6 +55,9 @@ app.use('/getData', isLoggedIn, getData);
 app.use('/remove', isLoggedIn, remove);
 app.use('/toggleWatched', isLoggedIn, toggleWatched);
 app.use('/signout', isLoggedIn, signout);
+app.use(function(req,res){
+    res.redirect('/');
+});
 function isLoggedIn(req, res, next) {
 //console.log('in loggedin: ' + req.isAuthenticated());
   //console.log(next);

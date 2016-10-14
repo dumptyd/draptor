@@ -4,7 +4,7 @@ const router = require('express').Router(),
   toggleRoute = function (User) {
     router.post('/', function (req, res) {
       User.findById(req.user._id, function (err, user) {
-        let index = -1;
+        var index = -1;
         if (req.body.type === 'movie')
         user.movies.forEach(function (e,i) {
           if (e.imdbID === req.body.imdbID) index = i;
