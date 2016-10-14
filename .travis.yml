@@ -1,9 +1,11 @@
 language: node_js
 node_js:
-  - '6.1'
+- '6.1'
 env:
   global:
-    - NODE_ENV=production
+  - NODE_ENV=production
 deploy:
   app: draptor
+  api_key:
+    secure: A31GqlXJjVikjks/Bo1qRISPF+MhjExKeCMYixS6H+n+00tgG8hOsAF9UaTP0H6FsSKl46Xhed73n1+2/lVjqYZW6cFkDCmhXoVs3vwbwmMFelGGcQo6uYjjCA0eHr4SMtKJlO06h0o+qSJIa2BDEjhdJjC4GnK8OojlRUgcK6br5rXCjoQK/k/uLUPOiBz+FDM7qrd+FHugbSQTRCugpaIJ7NbdhHqHh3xGJH1mPJ25D3vHRqXjg4RGXKPFVpsPyj25gwODXfutn636Ed35/pehH33qdHnKnKzqfHA93J2cTQn9LwnfVAMDPs2dW8J3hg3Z9Ryzrp5Hk9Ya4p2EhuNKICb7fd0yXAGAwi2ZVxGsksXjQewTlVZtGylLFJkNcLTfUwwqzxh8tQ2Tzxl9Tg12t+VAmBbqTkQLeXan/KkPSX3z0ba5sbNEWZksmqypA6+ix1fBmI3FYdyjSCL9MPKYZsDHnIWNRFn1wxJjQ7h8bq4XgqUBF1L4xTPm6fDtjdKjURtJ6vT/hmCQ+wZeqHBy6Sy8PEOl6qZczochFIxizBp+ssIE0CrG3Tx2RdhU6tzGoYY64twHdHnkSazom27g8TP2PqlvzvscOynQnNBlNMw6Y9QYDyj9XOgOVfN9HesGG4tfKjCjvKultjg99gKVbc27/28x5AmhBzs3A5I=
 provider: heroku
