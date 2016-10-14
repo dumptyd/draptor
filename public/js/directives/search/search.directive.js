@@ -8,7 +8,7 @@ directive('search', function (movieService) {
         $scope.searchTerm = '';
         $scope.noresults = false;
         $scope.search = function () {
-          if ($scope.searchTerm) $http.get("http://www.omdbapi.com/?plot=short&r=json&s=" + $scope.searchTerm).then(function (response) {
+          if ($scope.searchTerm) $http.get("https://www.omdbapi.com/?plot=short&r=json&s=" + $scope.searchTerm).then(function (response) {
             var data = response.data.Search;
             for (var obj in data) {
               for (var i = 0; i < movieService.movies.length; ++i) {
@@ -30,7 +30,7 @@ directive('search', function (movieService) {
           });
         };
         $scope.getMoreDetails = function (id) {
-          if ($scope.searchTerm) $http.get("http://www.omdbapi.com/?plot=full&r=json&i=" + id).then(function (response) {
+          if ($scope.searchTerm) $http.get("https://www.omdbapi.com/?plot=full&r=json&i=" + id).then(function (response) {
             var data = response.data;
             movieService.movies.forEach(function (e) {
               if (e.imdbID === data.imdbID) data.favorite = true;

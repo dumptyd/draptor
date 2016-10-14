@@ -15,14 +15,14 @@ directive('myMovies', function (movieService) {
           $scope.myMovies = [];
           $scope.myTvShows = [];
           movieService.movies.forEach(function (e) {
-            $http.get('http://www.omdbapi.com/?plot=full&r=json&i=' + e.imdbID).then(function (response) {
+            $http.get('https://www.omdbapi.com/?plot=full&r=json&i=' + e.imdbID).then(function (response) {
               var data = response.data;
               data.watched = e.watched;
               $scope.myMovies.push(data);
             });
           });
           movieService.tvshows.forEach(function (f) {
-            $http.get('http://www.omdbapi.com/?plot=full&r=json&i=' + f.imdbID).then(function (response) {
+            $http.get('https://www.omdbapi.com/?plot=full&r=json&i=' + f.imdbID).then(function (response) {
               var data = response.data;
               data.watched = f.watched;
               $scope.myTvShows.push(data);
