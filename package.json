@@ -1,11 +1,11 @@
 {
-  "name": "track-tv-shows",
+  "name": "draptor",
   "version": "1.0.0",
   "description": "Track tv shows and movies",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Message: no test specified\" && exit 0",
-    "start": "node index"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",

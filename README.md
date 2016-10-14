@@ -8,7 +8,7 @@ Deployed at https://draptor.herokuapp.com
 ***
 
 TODO
-- [ ] Refactoring. It needs **lots** of refactoring
+- [ ] Refactoring. This needs **lots** of refactoring.
 - [ ] More account information.
 - [ ] Separate info pages for movies and shows.
 - [ ] More validation. 
